@@ -85,5 +85,5 @@ Over time, the agent would learn the "optimal policy" for gold accumulation, spe
 - **Ops:** Docker, Nginx Proxy.
 
 ---
-**Developed by:** [Your Name]
-**For:** Dr. Ahmed Ebada (Technical Evaluation)
+**Developed by:** ALI Elmowafi
+**Submission for:** Technical Evaluation (AI-Powered Smart Decision System)
