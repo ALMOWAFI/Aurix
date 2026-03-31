@@ -86,4 +86,3 @@ Over time, the agent would learn the "optimal policy" for gold accumulation, spe
 
 ---
 **Developed by:** ALI Elmowafi
-**Submission for:** Technical Evaluation (AI-Powered Smart Decision System)
