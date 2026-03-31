@@ -49,8 +49,13 @@ The system uses a **Hybrid Intelligence Architecture**:
 ### **1. Predictive UI Dashboard (React)**
 The frontend features a **Predictive Chart** that "stitches" historical price lines with a dashed 5-day forecast, giving users a visual roadmap of the AI's expectations.
 
-### **2. Voice AI Agent (ElevenLabs)**
+### **2. Spoken Intelligence (Voice AI)**
 Incorporated a **Voice-to-Voice** interface via ElevenLabs Conversational AI. Users can speak directly to "Aurix" to get portfolio briefings, leveraging low-latency WebRTC technology.
+
+*Alternative Workflow:* An automated **n8n-based pipeline** was also designed as a modular alternative, handling parallel context fetching (Customer context + Gold prediction) before routing to an AI agent with conversational memory.
+
+![n8n Workflow](docs/assets/n8n_workflow.png)
+
 
 ### **3. Reinforcement Learning (Concept)**
 *Connecting my robotics background to fintech:*
