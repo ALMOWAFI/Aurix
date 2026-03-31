@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+matplotlib
+requests
+python-multipart
+anthropic
+python-dotenv
+yfinance
+joblib
