@@ -12,6 +12,8 @@ Aurix is a high-frequency decision-making pipeline that bridges **Quantitative M
 ---
 
 ## 🧠 Part 1: Intelligent Decision System
+> **Neural Pipeline Visualization:** [https://eclectic-fenglisu-52b1ae.netlify.app](https://eclectic-fenglisu-52b1ae.netlify.app)
+
 The system uses a **Hybrid Intelligence Architecture**:
 1.  **The Quantitative Layer (ML):** A Random Forest Regressor trained on 5 years of Gold Futures data. It provides a 5-day price forecast.
 2.  **The Reasoning Layer (LLM):** Powered by **Claude 3.5 Sonnet**, this agent acts as a "Quant Brain." It receives the ML forecast but contrasts it against real-time technicals (RSI) and Expert Sentiment.
