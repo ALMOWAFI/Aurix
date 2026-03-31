@@ -1,7 +1,7 @@
 # Aurix: AI-Powered Smart Decision System
 **Intelligent Fintech Pipeline for Digital Gold Transactions**
 
-> **Live:** [http://13.49.240.15](http://13.49.240.15)
+> **Live:** [http://16.171.32.237](http://16.171.32.237)
 
 ---
 
