@@ -1,7 +1,10 @@
-# Aurix : AI-Powered Smart Decision System
+# Aurix Intel: AI-Powered Smart Decision System
 **Intelligent Fintech Pipeline for Digital Gold Transactions**
 
+> **Live Demo:** [http://13.49.240.15](http://13.49.240.15)
+
 ---
+
 
 ## 🚀 Executive Summary
 Aurix  is a high-frequency decision-making pipeline that bridges **Quantitative Machine Learning** with **Agentic Reasoning**. Developed as part of a technical evaluation, this system demonstrates how a multi-agent architecture can provide grounded, risk-aware financial advice by synthesizing historical data, technical indicators (RSI/SMA), and live market reality.
