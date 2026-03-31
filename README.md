@@ -52,7 +52,7 @@ The frontend features a **Predictive Chart** that "stitches" historical price li
 ### **2. Spoken Intelligence (Voice AI)**
 Incorporated a **Voice-to-Voice** interface via ElevenLabs Conversational AI. Users can speak directly to "Aurix" to get portfolio briefings, leveraging low-latency WebRTC technology.
 
-*Alternative Workflow:* An automated **n8n-based pipeline** was also designed as a modular alternative, handling parallel context fetching (Customer context + Gold prediction) before routing to an AI agent with conversational memory.
+*Voice Backend Alternative:* An automated **n8n-based pipeline** was also designed specifically as a modular backend alternative for the voice agent. It handles parallel context fetching (Customer context + Gold prediction) via webhooks before routing to an AI agent with conversational memory to power the voice responses.
 
 ![n8n Workflow](docs/assets/n8n_workflow.png)
 
