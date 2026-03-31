@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurix Intelligence Flow</title>
+    <style>
+        :root {
+            --bg: #020617;
+            --amber: #fbbf24;
+            --indigo: #6366f1;
+            --pink: #ec4899;
+            --slate: #94a3b8;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: white;
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .stage {
+            position: relative;
+            width: 1000px;
+            height: 600px;
+        }
+        
+        /* The Nodes */
+        .node {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 10;
+            transition: all 0.5s ease;
+        }
+        .node-label {
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 140px;
+            color: var(--slate);
+            white-space: nowrap;
+        }
+        .orb {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.5;
+            animation: pulse 3s infinite ease-in-out;
+        }
+        .core {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 30px currentColor;
+        }
+
+        /* Positions */
+        #market { top: 240px; left: 50px; color: var(--slate); }
+        #ml { top: 240px; left: 300px; color: var(--amber); }
+        #brain { top: 100px; left: 600px; color: var(--amber); }
+        #auditor { top: 380px; left: 600px; color: var(--indigo); }
+        #output { top: 240px; left: 850px; color: var(--pink); }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 0.6; }
+        }
+
+        /* SVG Connections */
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        path {
+            fill: none;
+            stroke: rgba(255,255,255,0.05);
+            stroke-width: 2;
+        }
+        
+        /* Particle Animation */
+        .particle {
+            offset-path: path(attr(d));
+            animation: flow 4s infinite linear;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+            position: absolute;
+            filter: blur(2px);
+            box-shadow: 0 0 10px var(--amber);
+        }
+
+        @keyframes flow {
+            from { offset-distance: 0%; }
+            to { offset-distance: 100%; }
+        }
+
+        .header {
+            position: absolute;
+            top: 40px;
+            text-align: center;
+            width: 100%;
+        }
+        .header h1 {
+            font-size: 12px;
+            letter-spacing: 8px;
+            color: var(--slate);
+            text-transform: uppercase;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Aurix Neural Pipeline</h1>
+    </div>
+
+    <div class="stage">
+        <!-- SVG Paths -->
+        <svg viewBox="0 0 1000 600">
+            <path id="p1" d="M 110 300 L 300 300" />
+            <path id="p2" d="M 360 300 C 450 300, 500 160, 600 160" />
+            <path id="p3" d="M 660 160 C 750 160, 750 380, 660 380" /> <!-- Adversarial Loop -->
+            <path id="p4" d="M 660 380 C 750 380, 750 160, 660 160" /> <!-- Adversarial Loop -->
+            <path id="p5" d="M 660 160 C 750 160, 800 300, 850 300" />
+        </svg>
+
+        <!-- Particles -->
+        <div class="particle" style="offset-path: path('M 110 300 L 300 300'); animation-delay: 0s;"></div>
+        <div class="particle" style="offset-path: path('M 360 300 C 450 300, 500 160, 600 160'); animation-delay: 1s;"></div>
+        <div class="particle" style="offset-path: path('M 660 160 C 750 160, 750 380, 660 380'); animation-delay: 2s; background: var(--indigo);"></div>
+        <div class="particle" style="offset-path: path('M 660 380 C 750 380, 750 160, 660 160'); animation-delay: 3s; background: var(--amber);"></div>
+        <div class="particle" style="offset-path: path('M 660 160 C 750 160, 800 300, 850 300'); animation-delay: 4s; background: var(--pink);"></div>
+
+        <!-- Nodes -->
+        <div class="node" id="market">
+            <div class="orb" style="background: var(--slate);"></div>
+            <div class="core"></div>
+            <div class="node-label">yfinance / Spot</div>
+        </div>
+
+        <div class="node" id="ml">
+            <div class="orb" style="background: var(--amber);"></div>
+            <div class="core"></div>
+            <div class="node-label">ML Forecasting</div>
+        </div>
+
+        <div class="node" id="brain">
+            <div class="orb" style="background: var(--amber);"></div>
+            <div class="core"></div>
+            <div class="node-label">Claude 3.5 Brain</div>
+        </div>
+
+        <div class="node" id="auditor">
+            <div class="orb" style="background: var(--indigo);"></div>
+            <div class="core"></div>
+            <div class="node-label">Risk Governance</div>
+        </div>
+
+        <div class="node" id="output">
+            <div class="orb" style="background: var(--pink);"></div>
+            <div class="core"></div>
+            <div class="node-label">Voice / Dashboard</div>
+        </div>
+    </div>
+</body>
+</html>
