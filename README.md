@@ -61,6 +61,13 @@ Incorporated a **Voice-to-Voice** interface via ElevenLabs Conversational AI. Us
 
 ![n8n Workflow](docs/assets/n8n_workflow.png)
 
+---
+
+## 🔗 Automation Bridge (n8n Integration)
+To demonstrate system-level orchestration, the backend includes an **External Context Bridge**:
+- **Endpoint:** `POST /api/external/n8n-bridge`
+- **Function:** Allows n8n workflows to push asynchronous market intelligence (Whale alerts, News sentiment) directly into the LLM's active reasoning context.
+- **Agentic Impact:** The Claude Brain automatically prioritizes these "External Signals" when generating portfolio advice, bridging the gap between isolated API calls and a living market ecosystem.
 
 ### **3. Reinforcement Learning (Concept)**
 *Connecting my robotics background to fintech:*

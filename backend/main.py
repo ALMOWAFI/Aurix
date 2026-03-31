@@ -22,6 +22,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, "..", "data", "gold_data.csv")
 USER_PROFILE_PATH = os.path.join(BASE_DIR, "user_profile.json")
 
+# n8n External Context Bridge (Non-disruptive layer)
+N8N_DATA = {"context": "No external automation alerts.", "updated_at": None}
+
 app = FastAPI(title="Aurix Intelligence API")
 
 app.add_middleware(
@@ -49,6 +52,14 @@ def get_intel():
         intel = GoldIntelligence(DATA_PATH)
         advisor = DecisionAgent(intel)
     return intel, advisor
+
+@app.post("/api/external/n8n-bridge")
+async def n8n_bridge(payload: dict):
+    global N8N_DATA
+    # Lightweight memory update
+    N8N_DATA["context"] = payload.get("message", "Routine market scan.")
+    N8N_DATA["updated_at"] = payload.get("timestamp")
+    return {"status": "Aurix Bridge Active", "received": True}
 
 @app.post("/onboarding")
 def save_profile(profile: UserProfile):
@@ -78,24 +89,29 @@ def get_market_data(limit: int = 30):
 def get_recommendation(user_balance: float = 5000.0, gold_weight: float = 0.5):
     i, a = get_intel()
     last_row = i.df.iloc[-1].to_dict()
-    # Fixed the argument mismatch here
-    return a.get_recommendation(last_row, user_balance)
+    return a.get_recommendation(last_row, user_balance, gold_weight)
 
 @app.get("/chat")
 def chat(message: str, balance: float = 5000.0, gold_weight: float = 0.5):
     try:
         _, a = get_intel()
         
-        # Build Real context from the User Profile
         profile_context = "General User"
         if os.path.exists(USER_PROFILE_PATH):
             try:
                 with open(USER_PROFILE_PATH, 'r') as f:
                     p = json.load(f)
-                    profile_context = f"User Name: {p['name']}. Goal: {p['goal']}. Risk: {p['risk']}. Background: {p.get('background', 'Not provided')}."
+                    profile_context = f"User Name: {p['name']}. Goal: {p['goal']}. Risk: {p['risk']}."
             except: pass
         
-        user_portfolio = {"balance": balance, "gold_weight": gold_weight, "context": profile_context}
+        # Merge portfolio context with n8n alerts
+        user_portfolio = {
+            "balance": balance, 
+            "gold_weight": gold_weight, 
+            "context": profile_context,
+            "external_alert": N8N_DATA["context"]
+        }
+        
         response = a.brain.solve_user_request(message, user_portfolio)
         return {"response": response}
     except Exception as e:

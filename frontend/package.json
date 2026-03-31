@@ -10,27 +10,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@elevenlabs/react": "^1.0.1",
-    "axios": "^1.14.0",
-    "lucide-react": "^1.7.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "recharts": "^3.8.1"
+    "@elevenlabs/react": "latest",
+    "axios": "^1.7.9",
+    "lucide-react": "^0.468.0",
+    "recharts": "^2.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@tailwindcss/postcss": "^4.2.2",
-    "@tailwindcss/vite": "^4.2.2",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "autoprefixer": "^10.4.27",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.4.0",
-    "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2",
-    "vite": "^8.0.1"
+    "@eslint/js": "^9.17.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "postcss": "^8.4.49",
+    "vite": "^6.0.5"
   }
 }
